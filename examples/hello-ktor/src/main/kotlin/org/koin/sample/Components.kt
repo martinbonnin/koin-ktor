@@ -9,5 +9,5 @@ interface HelloService {
 }
 
 class HelloServiceImpl(val helloRepository: HelloRepository) : HelloService {
-    override fun sayHello() = "Hello ${helloRepository.getHello()} !"
+    override fun sayHello() = "Hello ${helloRepository.getHello()}!"
 }

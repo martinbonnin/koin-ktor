@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.koin.ktor.ext
+package org.koin.ktor.plugin
 
-import io.ktor.application.EventDefinition
+import io.ktor.events.*
 import org.koin.core.KoinApplication
 
 /**
