@@ -26,6 +26,6 @@ class ApplicationJobRoutesTest : AutoCloseKoinTest() {
     fun testHelloV1Request() = testApplication {
         val response = client.get("/v1/hello")
         assertEquals(HttpStatusCode.OK, response.status)
-        assert(response.bodyAsText().contains("[/v1/hello] Hello Ktor & Koin!"))
+        assert(response.bodyAsText().contains("[/v1/hello] Hello Again!"))
     }
 }

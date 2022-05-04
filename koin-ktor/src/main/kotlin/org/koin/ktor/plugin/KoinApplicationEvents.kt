@@ -19,6 +19,7 @@ import io.ktor.events.*
 import org.koin.core.KoinApplication
 
 /**
+ * @author Arnaud Giuliani
  * @author Victor Alenkov
  */
 

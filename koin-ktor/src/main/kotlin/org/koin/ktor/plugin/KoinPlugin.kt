@@ -17,8 +17,10 @@ package org.koin.ktor.plugin
 
 import io.ktor.server.application.*
 import org.koin.core.KoinApplication
+import org.koin.core.context.GlobalContext
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
+import org.koin.dsl.KoinAppDeclaration
 
 /**
  * @author Arnaud Giuliani
@@ -41,3 +43,7 @@ val Koin = createApplicationPlugin(name = "Koin", createConfiguration = { KoinAp
         monitor.raise(KoinApplicationStopped, koinApplication)
     }
 }
+
+fun Application.koin(configuration: KoinAppDeclaration) = pluginOrNull(Koin)?.let {
+    GlobalContext.getKoinApplicationOrNull()?.apply(configuration)
+} ?: install(Koin, configuration)

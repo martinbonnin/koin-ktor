@@ -16,6 +16,7 @@ import org.koin.logger.slf4jLogger
 fun main(args: Array<String>) {
     embeddedServer(Netty, port = 8080) {
         mainModule()
+        module2()
     }.start(wait = true)
 }
 
@@ -44,8 +45,6 @@ fun Application.mainModule() {
         get("/hello") {
             call.respondText(helloService.sayHello())
         }
-
-        declareRoutes()
     }
 }
 

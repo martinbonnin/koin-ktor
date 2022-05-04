@@ -12,3 +12,7 @@ val appModule = module {
     }
     singleOf(::HelloRepository)
 }
+
+val appModule2 = module {
+    singleOf(::HelloService2)
+}

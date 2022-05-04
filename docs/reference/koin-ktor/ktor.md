@@ -2,23 +2,25 @@
 title: Koin for Ktor
 ---
 
+:::note
+ The koin-ktor project is updated for Ktor `2.0`
+:::
+
+
 The `koin-ktor` project is dedicated to bring dependency injection for Ktor.
 
 ## Install Koin & inject
 
-To start Koin container, use the `installKoin()` starter function:
+To start Koin container in Ktor, just install `Koin` plugin like follow:
 
 ```kotlin
 fun Application.main() {
     // Install Ktor features
-    install(DefaultHeaders)
-    install(CallLogging)
     install(Koin) {
         slf4jLogger()
         modules(helloAppModule)
     }
 
-    //...
 }
 ```
 
@@ -26,9 +28,10 @@ fun Application.main() {
  You can also start it from outside of Ktor, but you won't be compatible with `autoreload` feature.
 :::
 
-### Application
 
-KoinComponent powers are available from `Application` class:
+### Injection in Application
+
+Koin `inject()` and `get()` functions are available from `Application` class:
 
 ```kotlin
 fun Application.main() {
@@ -46,23 +49,27 @@ fun Application.main() {
 }
 ```
 
-### Routing
+### Declaring Koin for a Ktor Module
 
-From `Routing` class:
+For a Ktor module, you can load specific Koin modules. Just declare themn with `koin { }` function:
+
 
 ```kotlin
-fun Application.main() {
-    //...
-
-    // Lazy inject HelloService
-    val service by inject<HelloService>()
-
-    // Routing section
-    routing {
-        v1()
+fun Application.module2() {
+    koin {
+        // load appModule2 for module2 Ktor module
+        modules(appModule2)
     }
-}
 
+}
+```
+
+
+### Injecting in Routing & Route 
+
+Koin `inject()` and `get()` functions are available from `Route` & `Routing` classes:
+
+```kotlin
 fun Routing.v1() {
 
     // Lazy inject HelloService from within a Ktor Routing Node
@@ -75,27 +82,9 @@ fun Routing.v1() {
 
 ```
 
-### Route
-
 From `Route` class:
 
 ```kotlin
-fun Application.main() {
-    //...
-
-    // Lazy inject HelloService
-    val service by inject<HelloService>()
-
-    // Routing section
-    routing {
-        v1()
-    }
-}
-
-fun Routing.v1() {
-    hello()
-}
-
 fun Route.hello() {
 
     // Lazy inject HelloService from within a Ktor Route
@@ -110,7 +99,7 @@ fun Route.hello() {
 
 ### Events
 
-Use Koin events
+You can listen to KTor Koin events:
 
 ```kotlin
 fun Application.main() {
@@ -120,12 +109,11 @@ fun Application.main() {
     environment.monitor.subscribe(KoinApplicationStarted) {
         log.info("Koin started.")
     }
-    install(Koin) {
-        // ...
-    }
+
     environment.monitor.subscribe(KoinApplicationStopPreparing) {
         log.info("Koin stopping...")
     }
+
     environment.monitor.subscribe(KoinApplicationStopped) {
         log.info("Koin stopped.")
     }
