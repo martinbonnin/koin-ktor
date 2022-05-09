@@ -3,7 +3,7 @@ title: Koin for Ktor
 ---
 
 :::note
- The koin-ktor project is updated for Ktor `2.0`
+ The koin-ktor project is updated for Ktor `2.0.1`
 :::
 
 
