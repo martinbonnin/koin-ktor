@@ -11,7 +11,7 @@ The `koin-ktor` project is dedicated to bring dependency injection for Ktor.
 
 ## Install Koin & inject
 
-To start Koin container in Ktor, just install `Koin` plugin like follow:
+To start a Koin container in Ktor, just install the `Koin` plugin like follow:
 
 ```kotlin
 fun Application.main() {
@@ -51,7 +51,7 @@ fun Application.main() {
 
 ### Declaring Koin for a Ktor Module
 
-For a Ktor module, you can load specific Koin modules. Just declare themn with `koin { }` function:
+For a Ktor module, you can load specific Koin modules. Just declare them with `koin { }` function:
 
 
 ```kotlin
