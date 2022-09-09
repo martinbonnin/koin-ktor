@@ -1,9 +1,9 @@
 ext {
     // Koin
-    koin_version = '3.2.0'
-    koin_ktor_version = '3.2.0'
+    koin_version = '3.2.1'
+    koin_ktor_version = '3.2.1'
     // Ktor
-    ktor_version = '2.0.1'
+    ktor_version = '2.0.3'
 
     // pass it to true to make release
     is_snaptshot = true
