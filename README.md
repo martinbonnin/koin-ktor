@@ -6,7 +6,7 @@ A pragmatic lightweight dependency injection framework for Kotlin developers. `K
 
 ## Koin for Ktor
 
-- current stable version: `koin_ktor_version = 3.2.0` (base on ktor `ktor_version = 2.0.1`)
+- current stable version: `koin_ktor_version = 3.2.1` (base on ktor `ktor_version = 2.0.3`)
 
 You can find the following page to help setup your project: [Koin Gradle Setup](https://insert-koin.io/docs/setup/v3.2)
 

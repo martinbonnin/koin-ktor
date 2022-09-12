@@ -4,7 +4,11 @@ Badges: `[UPDATED]`, `[FIXED]`, `[NEW]`, `[DEPRECATED]`, `[REMOVED]`,  `[BREAKIN
 
 # [3.2]()
 
-## [3.2.0-beta-2]()
+## [3.2.1]()
+
+* `[UPDATED]` - ktor update - 2.0.3
+
+## [3.2.0]()
 
 * `[NEW]` - Koin Ktor extracted project 
 * `[UPDATED]` - slf4j update - org.slf4j:slf4j-api:1.7.36
